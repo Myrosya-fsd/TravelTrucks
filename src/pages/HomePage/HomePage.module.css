@@ -1,0 +1,42 @@
+.overlay {
+  padding: 260px 64px;
+  height: 696px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 67%;
+  color: var(--inputs);
+  margin-bottom: 16px;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--inputs);
+  margin-bottom: 40px;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  border-radius: 200px;
+  padding: 16px 48px;
+  width: 173px;
+  height: 56px;
+  background-color: var(--button);
+  text-decoration: none;
+  color: var(--white);
+}
+
+.link:hover,
+.link:focus {
+  background-color: var(--button-hover);
+}

@@ -1,0 +1,178 @@
+.catalogList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trucksGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.locationBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper svg {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  color: var(--gray-light);
+}
+
+.location {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.input {
+  border-radius: 12px;
+  padding: 18px 18px 18px 35px;
+  width: 360px;
+  height: 56px;
+  background: var(--inputs);
+  border: none;
+}
+
+.input:hover,
+.input:focus {
+  outline: none;
+  border: 1px solid var(--gray-light);
+}
+
+.input:not(:placeholder-shown)::placeholder {
+  color: transparent;
+}
+
+.filters {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.blockType {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.titleType {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+}
+
+.typeDivider {
+  width: 360px;
+}
+
+.type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.iconText {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--main);
+
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  width: 112px;
+  height: 96px;
+  mix-blend-mode: multiply;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.iconText:hover,
+.iconText:focus {
+  border-color: var(--button-hover);
+}
+
+.iconText.active {
+  border-color: var(--button-hover);
+}
+
+.Btn {
+  border-radius: 200px;
+  padding: 16px 60px;
+  height: 56px;
+  border: none;
+  background: var(--button);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  transition: border-color 0.2s;
+}
+
+.Btn:hover,
+.Btn:focus {
+  background: var(--button-hover);
+}
+
+.catalogLoad {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 64px;
+}
+
+.loadMoreRow {
+  display: flex;
+  justify-content: center;
+}
+
+.btnLoad {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--main);
+  border: 1px solid var(--gray-light);
+  border-radius: 200px;
+  padding: 16px 32px;
+  width: 145px;
+  height: 56px;
+}
+
+.btnLoad:hover,
+.btnLoad:focus {
+  border-color: var(--button-hover);
+}

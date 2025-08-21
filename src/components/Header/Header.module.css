@@ -1,0 +1,39 @@
+.header {
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--inputs);
+}
+
+.logo {
+  flex: 1;
+}
+
+.spacer {
+  flex: 1; /* Така ж ширина, як .logo — для центрування */
+}
+
+.nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--main);
+  padding: 28px 16px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.active {
+  text-decoration: none;
+  color: var(--button-hover);
+}

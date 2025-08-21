@@ -1,0 +1,121 @@
+.catalogItem {
+  border: 1px solid var(--gray-light);
+  border-radius: 20px;
+  padding: 24px;
+  width: 888px;
+  height: 368px;
+  background-color: white;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.catalogItem__image {
+  border-radius: 10px;
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+  object-position: center 10px right;
+  display: block;
+  margin-right: 24px;
+}
+
+.catalogItem__content {
+  width: 524px;
+  height: 320px;
+}
+
+.catalogItem__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.name,
+.price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+}
+
+.informPrice {
+  display: flex;
+  gap: 12px;
+}
+.inform {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.iconLocat {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+  color: var(--main);
+}
+
+.catalogItem__description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.catalogItem__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.iconText {
+  border-radius: 100px;
+  padding: 12px 18px;
+  height: 48px;
+  background: var(--badges);
+  mix-blend-mode: multiply;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--main);
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.fullRow {
+  flex-basis: 100%;
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.Btn {
+  border-radius: 200px;
+  padding: 16px 40px;
+  height: 56px;
+  border: none;
+  box-sizing: border-box;
+  background: var(--button);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.Btn:hover,
+.Btn:focus {
+  background-color: var(--button-hover);
+}
