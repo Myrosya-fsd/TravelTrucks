@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./CatalogItem.module.css";
 import Icon from "../Icon/Icon.jsx";
 
 const CatalogItem = ({ data }) => {
-  const { gallery, name, price, rating, location, description } = data;
+  const { gallery, name, price, rating, location, description, id } = data;
+  const navigate = useNavigate();
+
+  const handleShowMore = () => {
+    navigate(`/truck/${id}`);
+  };
 
   return (
     <div className={styles.catalogItem}>
@@ -24,7 +30,9 @@ const CatalogItem = ({ data }) => {
         <div className={styles.inform}>
           <div className={styles.iconLocat}>
             <Icon iconName="icon-Rating" width={20} height={20} />
-            <span>{rating} (Reviews)</span>
+            <span>
+              {rating} ({data.reviews.length} Reviews)
+            </span>
           </div>
 
           <div className={styles.iconLocat}>
@@ -60,7 +68,9 @@ const CatalogItem = ({ data }) => {
             </li>
           </div>
         </ul>
-        <button className={styles.Btn}>Show more</button>
+        <button className={styles.Btn} onClick={handleShowMore}>
+          Show more
+        </button>
       </div>
     </div>
   );

@@ -80,10 +80,16 @@ export default CatalogItem;
 
 
 
+  const { name, rating, comment } = reviews;
 
 
-
-
+      <ul>
+        <li key={item.key} className={styles.iconText}>
+          <p>{reviewer_name}</p>
+          <Icon iconName={item.icon} width={20} height={20} />
+          <p>{comment}</p>
+        </li>
+      </ul>
 
 
 

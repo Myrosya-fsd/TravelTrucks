@@ -1,0 +1,188 @@
+.truckDetailsPage {
+  padding: 48px 64px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.informPrice {
+  margin-bottom: 40px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+}
+
+.inform {
+  display: flex;
+  gap: 16px;
+}
+
+.iconRatig,
+.iconLocat {
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconRatig {
+  text-decoration: underline;
+}
+
+.gallery {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+
+.catalogItem__image {
+  border-radius: 10px;
+  width: 292px;
+  height: 312px;
+  object-fit: cover;
+  object-position: center 30px right;
+  display: block;
+}
+
+.catalogItem__description {
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 64px;
+}
+
+.tabs {
+  display: flex;
+  gap: 40px;
+}
+
+.typeDivider {
+  margin-bottom: 44px;
+}
+
+.contactBlock {
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 44px;
+  width: 641px;
+  height: 588px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  flex: 0 0 641px;
+}
+
+.contactBlockText {
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.contactBlockTitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.contactBlockInput {
+  border-radius: 12px;
+  padding: 18px 337px 18px 18px;
+  width: 527px;
+  height: 60px;
+  border: none;
+  margin-bottom: 14px;
+  background: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+}
+
+.contactBlockInput:hover,
+.contactBlockInput:focus,
+.contactBlockTextarea:hover,
+.contactBlockTextarea:focus {
+  outline: none;
+  border: 1px solid var(--gray-light);
+  background: var(--inputs);
+}
+
+.contactBlockTextarea {
+  border-radius: 10px;
+  padding: 18px 308px 76px 18px;
+  width: 527px;
+  height: 118px;
+  border: none;
+  background: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 24px;
+  overflow-y: hidden;
+  resize: none;
+}
+
+.btn {
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  border: none;
+  background: var(--button);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--button-hover);
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.catalogItem__features {
+  flex: 1;
+}
+
+.link {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  padding-bottom: 24px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 2px solid red;
+}

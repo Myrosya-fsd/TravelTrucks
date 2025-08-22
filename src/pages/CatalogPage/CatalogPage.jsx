@@ -4,9 +4,7 @@ import CatalogList from "../../components/CatalogList/CatalogList.jsx";
 const CatalogPage = () => {
   return (
     <>
-      <li>
-        <CatalogList />
-      </li>
+      <CatalogList />
     </>
   );
 };
