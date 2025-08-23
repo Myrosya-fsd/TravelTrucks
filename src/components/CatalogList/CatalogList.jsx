@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import CatalogItem from "../CatalogItem/CatalogItem.jsx";
 import styles from "./CatalogList.module.css";
 import Icon from "../Icon/Icon.jsx";
@@ -41,7 +42,7 @@ const CatalogList = () => {
 
       const matchesEquipment = equipments.every((eq) => {
         if (eq === "automatic") return item.transmission === "automatic";
-        return item[eq] === true; // TV, AC, kitchen, bathroom
+        return item[eq] === true;
       });
 
       const matchesType =
@@ -57,10 +58,10 @@ const CatalogList = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers")
-      .then((res) => res.json())
-      .then((data) => {
-        const items = Array.isArray(data.items) ? data.items : data;
+    axios
+      .get("https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers")
+      .then((res) => {
+        const items = Array.isArray(res.data.items) ? res.data.items : res.data;
         setAllItems(items);
         setFilteredItems(items);
         setTrucks(items.slice(0, 4));

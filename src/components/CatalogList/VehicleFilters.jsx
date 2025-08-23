@@ -4,7 +4,7 @@ import styles from "./CatalogList.module.css";
 
 const VehicleFilters = ({ onSearch }) => {
   const [activeEquipments, setActiveEquipments] = useState([]);
-  const [activeVehicleTypes, setActiveVehicleTypes] = useState([]); // 🔹 масив для типів
+  const [activeVehicleTypes, setActiveVehicleTypes] = useState([]);
 
   const equipmentItems = [
     { id: "AC", icon: "icon-wind", label: "AC" },
@@ -14,21 +14,18 @@ const VehicleFilters = ({ onSearch }) => {
     { id: "bathroom", icon: "icon-shower", label: "Bathroom" },
   ];
 
-  // прив'язуємо id до значення з API (`form`)
   const vehicleTypeItems = [
     { id: "van", icon: "icon-grid-3x3", label: "Van" },
     { id: "fullyIntegrated", icon: "icon-grid", label: "Fully Integrated" },
     { id: "alcove", icon: "icon-grid-1x2", label: "Alcove" },
   ];
 
-  // toggle для equipment
   const toggleEquipment = (id) => {
     setActiveEquipments((prev) =>
       prev.includes(id) ? prev.filter((eq) => eq !== id) : [...prev, id]
     );
   };
 
-  // toggle для vehicleType
   const toggleVehicleType = (id) => {
     setActiveVehicleTypes((prev) =>
       prev.includes(id) ? prev.filter((vt) => vt !== id) : [...prev, id]

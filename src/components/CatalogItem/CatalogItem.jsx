@@ -8,7 +8,6 @@ const CatalogItem = ({ data }) => {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
 
-  // При завантаженні компонента перевіряємо, чи є цей camper в localStorage
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     if (savedFavorites.includes(id)) {
@@ -21,10 +20,8 @@ const CatalogItem = ({ data }) => {
 
     let updatedFavorites;
     if (isLiked) {
-      // якщо вже в обраному – видаляємо
       updatedFavorites = savedFavorites.filter((favId) => favId !== id);
     } else {
-      // якщо немає – додаємо
       updatedFavorites = [...savedFavorites, id];
     }
 
@@ -48,7 +45,9 @@ const CatalogItem = ({ data }) => {
 
       <div className={styles.catalogItem__content}>
         <div className={styles.catalogItem__header}>
-          <h2 className={styles.name}>{name}</h2>
+          <h2 className={styles.name}>
+            {name.length > 30 ? name.slice(0, 30) + "..." : name}
+          </h2>
           <div className={styles.informPrice}>
             <span className={styles.price}>€{price}</span>
             <div onClick={handleLikeClick} style={{ cursor: "pointer" }}>

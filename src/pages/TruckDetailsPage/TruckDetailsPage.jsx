@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, NavLink, Outlet } from "react-router-dom";
+import axios from "axios";
 import Icon from "../../components/Icon/Icon.jsx";
 import styles from "./TruckDetailsPage.module.css";
-import { NavLink } from "react-router-dom";
 
 const TruckDetailsPage = () => {
   const { id } = useParams();
@@ -15,9 +15,10 @@ const TruckDetailsPage = () => {
   const [commentInput, setCommentInput] = useState("");
 
   useEffect(() => {
-    fetch("https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/" + id)
-      .then((res) => res.json())
-      .then((data) => setTruck(data))
+    setLoading(true);
+    axios
+      .get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`)
+      .then((res) => setTruck(res.data))
       .catch((err) => console.error("Error fetching data:", err))
       .finally(() => setLoading(false));
   }, [id]);
@@ -57,7 +58,7 @@ const TruckDetailsPage = () => {
           <div className={styles.iconRatig}>
             <Icon iconName="icon-Rating" width={20} height={20} />
             <span>
-              {rating} ({truck.reviews.length} Reviews)
+              {rating} ({truck.reviews?.length || 0} Reviews)
             </span>
           </div>
 
@@ -74,7 +75,7 @@ const TruckDetailsPage = () => {
         </div>
 
         <div className={styles.gallery}>
-          {gallery.map((img, index) => (
+          {gallery?.map((img, index) => (
             <img
               key={index}
               className={styles.catalogItem__image}
