@@ -30,7 +30,7 @@ const CatalogItem = ({ data }) => {
   };
 
   const handleShowMore = () => {
-    navigate(`/truck/${id}`);
+    window.open(`/truck/${id}`, "_blank");
   };
 
   return (
@@ -49,7 +49,7 @@ const CatalogItem = ({ data }) => {
             {name.length > 30 ? name.slice(0, 30) + "..." : name}
           </h2>
           <div className={styles.informPrice}>
-            <span className={styles.price}>€{price}</span>
+            <span className={styles.price}>€{price.toFixed(2)}</span>
             <div onClick={handleLikeClick} style={{ cursor: "pointer" }}>
               <Icon
                 iconName={isLiked ? "icon-Property" : "icon-heard"}
