@@ -145,6 +145,7 @@
 .Btn:hover,
 .Btn:focus {
   background: var(--button-hover);
+  transform: scale(1.05);
 }
 
 .catalogLoad {
@@ -168,11 +169,11 @@
   border: 1px solid var(--gray-light);
   border-radius: 200px;
   padding: 16px 32px;
-  width: 145px;
   height: 56px;
 }
 
 .btnLoad:hover,
 .btnLoad:focus {
   border-color: var(--button-hover);
+  transform: scale(1.05);
 }

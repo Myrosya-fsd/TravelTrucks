@@ -159,6 +159,7 @@
 .btn:hover,
 .btn:focus {
   background: var(--button-hover);
+  transform: scale(1.05);
 }
 
 .bottomSection {

@@ -118,4 +118,5 @@
 .Btn:hover,
 .Btn:focus {
   background-color: var(--button-hover);
+  transform: scale(1.05);
 }

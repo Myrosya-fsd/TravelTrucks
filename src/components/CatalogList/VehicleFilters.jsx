@@ -2,28 +2,44 @@ import React, { useState } from "react";
 import Icon from "../Icon/Icon.jsx";
 import styles from "./CatalogList.module.css";
 
-const VehicleFilters = () => {
-  const [activeEquipment, setActiveEquipment] = useState(null);
-  const [activeVehicleType, setActiveVehicleType] = useState(null);
+const VehicleFilters = ({ onSearch }) => {
+  const [activeEquipments, setActiveEquipments] = useState([]);
+  const [activeVehicleTypes, setActiveVehicleTypes] = useState([]); // 🔹 масив для типів
 
   const equipmentItems = [
-    { id: 1, icon: "icon-wind", label: "AC" },
-    { id: 2, icon: "icon-diagram", label: "Automatic" },
-    { id: 3, icon: "icon-cup-hot", label: "Kitchen" },
-    { id: 4, icon: "icon-tv", label: "TV" },
-    { id: 5, icon: "icon-shower", label: "Bathroom" },
+    { id: "AC", icon: "icon-wind", label: "AC" },
+    { id: "automatic", icon: "icon-diagram", label: "Automatic" },
+    { id: "kitchen", icon: "icon-cup-hot", label: "Kitchen" },
+    { id: "TV", icon: "icon-tv", label: "TV" },
+    { id: "bathroom", icon: "icon-shower", label: "Bathroom" },
   ];
 
+  // прив'язуємо id до значення з API (`form`)
   const vehicleTypeItems = [
-    { id: 1, icon: "icon-grid-3x3", label: "Van" },
-    { id: 2, icon: "icon-grid", label: "Fully Integrated" },
-    { id: 3, icon: "icon-grid-1x2", label: "Alcove" },
+    { id: "van", icon: "icon-grid-3x3", label: "Van" },
+    { id: "fullyIntegrated", icon: "icon-grid", label: "Fully Integrated" },
+    { id: "alcove", icon: "icon-grid-1x2", label: "Alcove" },
   ];
 
-  const handleSearch = () => {
-    setActiveEquipment(null);
-    setActiveVehicleType(null);
-    // додатковий код пошуку тут
+  // toggle для equipment
+  const toggleEquipment = (id) => {
+    setActiveEquipments((prev) =>
+      prev.includes(id) ? prev.filter((eq) => eq !== id) : [...prev, id]
+    );
+  };
+
+  // toggle для vehicleType
+  const toggleVehicleType = (id) => {
+    setActiveVehicleTypes((prev) =>
+      prev.includes(id) ? prev.filter((vt) => vt !== id) : [...prev, id]
+    );
+  };
+
+  const handleSearchClick = () => {
+    onSearch({
+      equipments: activeEquipments,
+      vehicleTypes: activeVehicleTypes,
+    });
   };
 
   return (
@@ -36,9 +52,9 @@ const VehicleFilters = () => {
             <li
               key={item.id}
               className={`${styles.iconText} ${
-                activeEquipment === item.id ? styles.active : ""
+                activeEquipments.includes(item.id) ? styles.active : ""
               }`}
-              onClick={() => setActiveEquipment(item.id)}
+              onClick={() => toggleEquipment(item.id)}
             >
               <Icon iconName={item.icon} width={32} height={32} />
               {item.label}
@@ -55,9 +71,9 @@ const VehicleFilters = () => {
             <li
               key={item.id}
               className={`${styles.iconText} ${
-                activeVehicleType === item.id ? styles.active : ""
+                activeVehicleTypes.includes(item.id) ? styles.active : ""
               }`}
-              onClick={() => setActiveVehicleType(item.id)}
+              onClick={() => toggleVehicleType(item.id)}
             >
               <Icon iconName={item.icon} width={32} height={32} />
               {item.label}
@@ -66,7 +82,7 @@ const VehicleFilters = () => {
         </ul>
       </div>
 
-      <button className={styles.Btn} onClick={handleSearch}>
+      <button className={styles.Btn} onClick={handleSearchClick}>
         Search
       </button>
     </>
