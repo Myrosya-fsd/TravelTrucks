@@ -30,31 +30,65 @@ const Features = () => {
       value: transmission === "automatic",
       label: "Automatic",
       icon: "icon-diagram",
+      iconType: "fill",
     },
-    { key: "AC", value: AC, label: "AC", icon: "icon-wind" },
-    { key: "kitchen", value: kitchen, label: "Kitchen", icon: "icon-cup-hot" },
-    { key: "radio", value: radio, label: "Radio", icon: "icon-Vector" },
-    { key: "TV", value: TV, label: "TV", icon: "icon-tv" },
+    {
+      key: "AC",
+      value: AC,
+      label: "AC",
+      icon: "icon-wind",
+      iconType: "fill",
+    },
+    {
+      key: "kitchen",
+      value: kitchen,
+      label: "Kitchen",
+      icon: "icon-cup-hot",
+      iconType: "fill",
+    },
+    {
+      key: "radio",
+      value: radio,
+      label: "Radio",
+      icon: "icon-Vector",
+      iconType: "fill",
+    },
+    { key: "TV", value: TV, label: "TV", icon: "icon-tv", iconType: "fill" },
     {
       key: "bathroom",
       value: bathroom,
       label: "Bathroom",
       icon: "icon-shower",
+      iconType: "fill",
     },
     {
       key: "refrigerator",
       value: refrigerator,
       label: "Refrigerator",
       icon: "icon-fridge",
+      iconType: "fill",
     },
     {
       key: "microwave",
       value: microwave,
       label: "Microwave",
       icon: "icon-microwave",
+      iconType: "stroke",
     },
-    { key: "gas", value: gas, label: "Gas", icon: "icon-stove" },
-    { key: "water", value: water, label: "Water", icon: "icon-water" },
+    {
+      key: "gas",
+      value: gas,
+      label: "Gas",
+      icon: "icon-stove",
+      iconType: "stroke",
+    },
+    {
+      key: "water",
+      value: water,
+      label: "Water",
+      icon: "icon-water",
+      iconType: "stroke",
+    },
   ];
 
   return (
@@ -64,11 +98,17 @@ const Features = () => {
           .filter((item) => item.value)
           .map((item) => (
             <li key={item.key} className={styles.iconText}>
-              <Icon iconName={item.icon} width={20} height={20} />
+              <Icon
+                iconName={item.icon}
+                width={20}
+                height={20}
+                iconType={item.iconType}
+              />
               {item.label}
             </li>
           ))}
       </ul>
+
       <div>
         <h3 className={styles.featuresTitle}>Vehicle details</h3>
         <hr className={styles.typeDivider} />

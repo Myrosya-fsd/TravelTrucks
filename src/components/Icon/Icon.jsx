@@ -12,16 +12,19 @@ const Icon = React.memo(
     role = "img",
     onClick,
     isActive = false,
+    iconType = "fill", // новий проп: "fill" або "stroke"
   }) => {
     const handleClick = () => {
-      if (onClick) {
-        onClick();
-      }
+      if (onClick) onClick();
     };
+
     return (
       <svg
-        className={`${styles[className]}
-          ${isActive ? styles["isActive"] : null}`}
+        className={`
+          ${styles[className]} 
+          ${isActive ? styles.isActive : ""} 
+          ${iconType === "stroke" ? styles.stroke : styles.fill}
+        `}
         width={width}
         height={height}
         role={role}
@@ -38,5 +41,4 @@ const Icon = React.memo(
 );
 
 Icon.displayName = "Icon";
-
 export default Icon;
