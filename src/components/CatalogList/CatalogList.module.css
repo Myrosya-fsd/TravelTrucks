@@ -131,6 +131,7 @@
 .iconText:hover,
 .iconText:focus {
   border-color: var(--button-hover);
+  transform: scale(1.05);
 }
 
 .iconText.active {

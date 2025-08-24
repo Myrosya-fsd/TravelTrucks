@@ -25,6 +25,20 @@ const CatalogList = () => {
     dispatch(setCity(e.target.value));
   };
 
+  const handleCityBlur = () => {
+    let value = city.trim();
+
+    if (value) {
+      value = value.charAt(0).toUpperCase() + value.slice(1);
+
+      if (!value.toLowerCase().includes("ukraine")) {
+        value = `${value}, Ukraine`;
+      }
+
+      dispatch(setCity(value));
+    }
+  };
+
   const handleSearch = () => {
     dispatch(fetchVehicles()).then((res) => {
       if (res.payload.length === 0) {
@@ -52,6 +66,7 @@ const CatalogList = () => {
                 placeholder="City, Ukraine"
                 value={city}
                 onChange={handleCityChange}
+                onBlur={handleCityBlur}
               />
             </div>
           </div>

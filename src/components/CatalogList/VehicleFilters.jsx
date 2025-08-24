@@ -4,7 +4,7 @@ import styles from "./CatalogList.module.css";
 
 const VehicleFilters = ({ onSearch }) => {
   const [activeEquipments, setActiveEquipments] = useState([]);
-  const [activeVehicleTypes, setActiveVehicleTypes] = useState([]);
+  const [activeVehicleType, setActiveVehicleType] = useState(""); // тільки один тип кузова
 
   const equipmentItems = [
     { id: "AC", icon: "icon-wind", label: "AC" },
@@ -27,15 +27,13 @@ const VehicleFilters = ({ onSearch }) => {
   };
 
   const toggleVehicleType = (id) => {
-    setActiveVehicleTypes((prev) =>
-      prev.includes(id) ? prev.filter((vt) => vt !== id) : [...prev, id]
-    );
+    setActiveVehicleType((prev) => (prev === id ? "" : id));
   };
 
   const handleSearchClick = () => {
     onSearch({
       equipments: activeEquipments,
-      vehicleTypes: activeVehicleTypes,
+      vehicleTypes: activeVehicleType ? [activeVehicleType] : [],
     });
   };
 
@@ -68,7 +66,7 @@ const VehicleFilters = ({ onSearch }) => {
             <li
               key={item.id}
               className={`${styles.iconText} ${
-                activeVehicleTypes.includes(item.id) ? styles.active : ""
+                activeVehicleType === item.id ? styles.active : ""
               }`}
               onClick={() => toggleVehicleType(item.id)}
             >
