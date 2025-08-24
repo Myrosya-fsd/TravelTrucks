@@ -3,6 +3,16 @@
   justify-content: space-between;
 }
 
+.trucksList {
+  display: flex;
+  flex-direction: column;
+}
+
+.trucksBlocs {
+  display: flex;
+  flex-direction: column;
+}
+
 .trucksGrid {
   display: flex;
   flex-direction: column;
