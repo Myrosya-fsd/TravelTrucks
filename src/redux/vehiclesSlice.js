@@ -13,20 +13,37 @@ export const fetchVehicles = createAsyncThunk(
 
     const searchCity = filters.city.split(",")[0].trim().toLowerCase();
 
+    const equipmentMap = {
+      ac: "AC",
+      bathroom: "bathroom",
+      kitchen: "kitchen",
+      tv: "TV",
+    };
+
     items = items.filter((item) => {
       const cityFromApi = item.location.split(",")[1]?.trim().toLowerCase();
-      const matchesCity =
-        searchCity === "" ? true : cityFromApi?.includes(searchCity);
+      const matchesCity = searchCity === "" ? true : cityFromApi === searchCity;
 
-      const matchesEquipment = filters.equipments.every((eq) => {
-        if (eq === "automatic") return item.transmission === "automatic";
-        return item[eq] === true;
-      });
+      const matchesEquipment =
+        filters.equipments.length === 0
+          ? true
+          : filters.equipments.every((eq) => {
+              const eqLower = eq.trim().toLowerCase();
+
+              if (eqLower === "automatic") {
+                return item.transmission?.toLowerCase() === "automatic";
+              }
+
+              const key = equipmentMap[eqLower];
+              if (!key) return false;
+
+              return Boolean(item[key]) === true;
+            });
 
       const matchesType =
         filters.vehicleTypes.length === 0
           ? true
-          : filters.vehicleTypes.includes(item.form);
+          : item.form === filters.vehicleTypes[0];
 
       return matchesCity && matchesEquipment && matchesType;
     });

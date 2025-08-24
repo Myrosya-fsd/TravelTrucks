@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVehicles } from "../../redux/vehiclesSlice";
 import { setCity } from "../../redux/filtersSlice";
-import CatalogItem from "../CatalogItem/CatalogItem.jsx";
 import VehicleFilters from "./VehicleFilters.jsx";
-import Icon from "../Icon/Icon.jsx";
+import CatalogItem from "../CatalogItem/CatalogItem.jsx";
 import Loader from "../Loader/Loader.jsx";
 import { useNavigate } from "react-router-dom";
 import styles from "./CatalogList.module.css";
@@ -14,7 +13,6 @@ const CatalogList = () => {
   const navigate = useNavigate();
   const { list: trucks, loading } = useSelector((state) => state.vehicles);
   const { city } = useSelector((state) => state.filters);
-
   const [visibleCount, setVisibleCount] = useState(4);
 
   useEffect(() => {
@@ -27,26 +25,22 @@ const CatalogList = () => {
 
   const handleCityBlur = () => {
     let value = city.trim();
-
     if (value) {
       value = value.charAt(0).toUpperCase() + value.slice(1);
-
       if (!value.toLowerCase().includes("ukraine")) {
         value = `${value}, Ukraine`;
       }
-
       dispatch(setCity(value));
     }
   };
 
   const handleSearch = () => {
     dispatch(fetchVehicles()).then((res) => {
-      if (res.payload.length === 0) {
+      if (!res.payload || res.payload.length === 0) {
         navigate("/not-found");
       } else {
         setVisibleCount(4);
       }
-      dispatch(setCity(""));
     });
   };
 
@@ -59,7 +53,6 @@ const CatalogList = () => {
           <div className={styles.locationBlock}>
             <label className={styles.location}>Location</label>
             <div className={styles.inputWrapper}>
-              <Icon iconName="icon-map" width={16} height={16} />
               <input
                 className={styles.input}
                 type="text"
@@ -73,6 +66,7 @@ const CatalogList = () => {
 
           <VehicleFilters onSearch={handleSearch} />
         </div>
+
         <div className={styles.trucksBlocs}>
           <ul className={styles.trucksGrid}>
             {trucks.slice(0, visibleCount).map((truck) => (

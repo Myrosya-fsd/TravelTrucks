@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Icon from "../Icon/Icon.jsx";
+import {
+  setEquipments,
+  setVehicleTypes,
+  setCity,
+} from "../../redux/filtersSlice";
 import styles from "./CatalogList.module.css";
 
 const VehicleFilters = ({ onSearch }) => {
+  const dispatch = useDispatch();
   const [activeEquipments, setActiveEquipments] = useState([]);
   const [activeVehicleType, setActiveVehicleType] = useState(""); // тільки один тип кузова
 
@@ -31,10 +38,16 @@ const VehicleFilters = ({ onSearch }) => {
   };
 
   const handleSearchClick = () => {
-    onSearch({
-      equipments: activeEquipments,
-      vehicleTypes: activeVehicleType ? [activeVehicleType] : [],
-    });
+    dispatch(setEquipments(activeEquipments));
+    dispatch(setVehicleTypes(activeVehicleType ? [activeVehicleType] : []));
+
+    onSearch();
+
+    setActiveEquipments([]);
+    setActiveVehicleType("");
+
+    // Очищаємо поле вводу міста
+    dispatch(setCity(""));
   };
 
   return (

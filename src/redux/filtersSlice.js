@@ -17,14 +17,8 @@ const filtersSlice = createSlice({
     setVehicleTypes: (state, action) => {
       state.vehicleTypes = action.payload;
     },
-    resetFilters: (state) => {
-      state.city = "";
-      state.equipments = [];
-      state.vehicleTypes = [];
-    },
   },
 });
 
-export const { setCity, setEquipments, setVehicleTypes, resetFilters } =
-  filtersSlice.actions;
+export const { setCity, setEquipments, setVehicleTypes } = filtersSlice.actions;
 export default filtersSlice.reducer;
