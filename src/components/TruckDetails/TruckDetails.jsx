@@ -4,6 +4,7 @@ import axios from "axios";
 import Icon from "../Icon/Icon.jsx";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 import styles from "./TruckDetails.module.css";
 
 const TruckDetails = () => {
@@ -42,6 +43,8 @@ const TruckDetails = () => {
     };
 
     console.log("Sending form data:", formData);
+
+    toast.success("Your booking request has been sent successfully!");
 
     setNameInput("");
     setEmailInput("");
