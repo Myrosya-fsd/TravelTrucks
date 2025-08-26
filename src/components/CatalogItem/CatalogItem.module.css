@@ -15,7 +15,7 @@
   width: 292px;
   height: 320px;
   object-fit: cover;
-  object-position: center 10px right;
+  object-position: cente 10px right;
   display: block;
   margin-right: 24px;
 }
@@ -44,6 +44,7 @@
   display: flex;
   gap: 12px;
 }
+
 .inform {
   display: flex;
   gap: 16px;
@@ -51,6 +52,8 @@
 }
 
 .iconLocat {
+  display: flex;
+  align-items: center;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
