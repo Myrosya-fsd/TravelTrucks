@@ -37,4 +37,5 @@ Leave a review and rating.
 👤Author:
 
 Developed by Myroslava Havrylchuk
+Email: myroslavahavrylchuk@gmail.com
 GitHub: Myrosya-fsd

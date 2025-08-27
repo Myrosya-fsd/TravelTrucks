@@ -8,6 +8,46 @@ const CatalogItem = ({ data }) => {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
 
+  const { transmission, engine, kitchen, AC, bathroom } = data;
+
+  const featuresList = [
+    {
+      key: "transmission",
+      value: transmission === "automatic",
+      label: "Automatic",
+      icon: "icon-diagram",
+      iconType: "fill",
+    },
+    {
+      key: "engine",
+      value: engine,
+      label: engine.charAt(0).toUpperCase() + engine.slice(1),
+      icon: "icon-engine",
+      iconType: "fill",
+    },
+    {
+      key: "kitchen",
+      value: kitchen,
+      label: "Kitchen",
+      icon: "icon-cup-hot",
+      iconType: "fill",
+    },
+    {
+      key: "AC",
+      value: AC,
+      label: "AC",
+      icon: "icon-wind",
+      iconType: "fill",
+    },
+    {
+      key: "bathroom",
+      value: bathroom,
+      label: "Bathroom",
+      icon: "icon-shower",
+      iconType: "fill",
+    },
+  ];
+
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     if (savedFavorites.includes(id)) {
@@ -82,25 +122,20 @@ const CatalogItem = ({ data }) => {
             : description}
         </p>
 
-        <ul className={styles.catalogItem__features}>
-          <li className={styles.iconText}>
-            <Icon iconName="icon-diagram" width={20} height={20} />
-            Automatic
-          </li>
-          <li className={styles.iconText}>
-            <Icon iconName="icon-engine" width={20} height={20} />
-            Petrol
-          </li>
-          <li className={styles.iconText}>
-            <Icon iconName="icon-cup-hot" width={20} height={20} />
-            Kitchen
-          </li>
-          <div className={styles.fullRow}>
-            <li className={styles.iconText}>
-              <Icon iconName="icon-wind" width={20} height={20} />
-              AC
-            </li>
-          </div>
+        <ul className={styles.catalog_Item}>
+          {featuresList
+            .filter((item) => item.value)
+            .map((item) => (
+              <li key={item.key} className={styles.iconText}>
+                <Icon
+                  iconName={item.icon}
+                  width={20}
+                  height={20}
+                  iconType={item.iconType}
+                />
+                {item.label}
+              </li>
+            ))}
         </ul>
 
         <button className={styles.Btn} onClick={handleShowMore}>
